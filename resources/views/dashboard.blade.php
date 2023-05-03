@@ -1,74 +1,56 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Font awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
-    <link href="https://fonts.googleapis.com/css?family=Candal|Lora" rel="stylesheet">
-    <!-- //Font Awesome -->
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Candal|Lora" rel="stylesheet">
-    <!-- //Google Fonts -->
-
-    <link rel ="stylesheet" href="{{ asset("v2/assets/css/style.css") }}">
-    <title>RestaurantApp</title>
+    @include('includes.head')
 </head>
 <body>
     <header>
-        <div class="nav-overlay open"></div>
-        <span role="button" class="menu-icon">
-                <ion-icon name="menu-outline"></ion-icon>
-            </span>
-        <a href="../test/index.php" class="logo-wrapper td-none">
-            <div><span>OMAR</span>MAHROOS</div>
-        </a>
-
-        <nav>
-            <ul class="navmenu">
-                <h4> <li class="navitem"><a href="index.php">HOME</a></li></h4>
-                <h4> <li class="navitem"><a href="about.php">ABOUT</a></li></h4>
-                <li class="navitem">
-                    <h4><a href="#">SERVICES <ion-icon name="chevron-down-outline" class="navicon"></ion-icon></a></h4>
-                    <ul class="dropdown">
-                        <h4><li><a href="../application library">BEST SERVICES 2022</a></li></h4>
-                        <h4><li><a href="../bootstrap-5.2.0-beta1-dist">BEST SERVICES 2021 </a></li></h4>
-                        <h4><li><a href="../blog">BEST SERVICES 2020 </a></li></h4>
-                        <h4><li><a href="../base">BEST SERVICES 2019 </a></li></h4>
-                    </ul>
-                </li>
-                <?php
-                if(isset($_SESSION["id"])) {
-                    ?>
-                <h4><li class="navitem"><a href="index.php"><?php echo strtoupper($_SESSION["username"]); ?></a></li></h4>
-                <h4><li class="navitem"><a href="includes/logout.inc.php">LOGOUT</a></li></h4>
-                    <?php
-                } else {
-                    ?>
-                    <!--<h4><li class="navitem"><a href="register.php">SIGN UP</a></li></h4>
-                          <h4><li class="navitem"><a href="login.php">LOGIN</a></li></h4>-->
-                    <?php
-                }
-                ?>
-            </ul>
-
-        </nav>
+        @include('includes.header')
     </header>
+    <br>
 
-    <div class="row">
-        <div class="col-md-4">
-            omar Abdullah
+    <div class="auth-content">
+
+        <div class="card" style="width: 18rem;">
+            <a href="{{ url('management') }}">
+                <img src="{{ asset('v2/assets/images/management.jpg')}}" class="card-img-top" alt="..."
+                     width="120%" height="30%">
+            </a>
+            <div class="card-body">
+                <h3 class="card-title">Management</h3>
+                <a href="{{ url('management') }}" class="btn btn-primary">Go To Management</a>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="card" style="width: 18rem;">
+            <a href="{{ url('cashier') }}">
+                <img src="{{ asset('v2/assets/images/cashier.jpg')}}" class="card-img-top" alt="..."
+                width="120%" height="30%">
+            </a>
+            <div class="card-body">
+                <h3 class="card-title">Cashier</h3>
+                <a href="{{ url('cashier') }}" class="btn btn-primary">Go To Cashier</a>
+            </div>
+        </div>
+        <br>
+        <br>
+
+        <div class="card" style="width: 18rem;">
+            <a href="{{ url('report') }}">
+                <img src="{{ asset('v2/assets/images/report.png')}}" class="card-img-top" alt="..."
+                     width="120%" height="30%">
+            </a>
+            <div class="card-body">
+                <h3 class="card-title">Report</h3>
+                <a href="{{ url('report') }}" class="btn btn-primary">Go To Report</a>
+            </div>
         </div>
 
-        <div class="col-md-4">
-            omar Abdullah
-        </div>
 
-        <div class="col-md-4">
-            omar Abdullah
-        </div>
     </div>
+
+
 </body>
+
 </html>
