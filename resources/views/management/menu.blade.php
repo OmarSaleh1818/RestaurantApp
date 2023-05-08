@@ -18,12 +18,12 @@
             @include('includes.sidebar')
 
             <div class="col-md-8">
-                <label  class="col-sm-2 col-form-label">Add Category</label>
+                <label  class="col-sm-2 col-form-label">Add Menu</label>
                 <br>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" name="category_name"
-                            placeholder="Category Name...">
-                </div>
+                <br>
+                <a href="{{ route('menu.create') }}" class="btn btn-success btn-sm float-right">
+                    <i class="fas fa-plus"></i> Create Menue
+                </a>
                 <br>
                 <div class="row">
                     @if($errors->any())
@@ -37,41 +37,26 @@
                     @endif
                     @if(Session()->has('status'))
                         <div class="alert alert-success">
-                           <button type="button" class="btn-close" data-miss="alert">X
-                           </button>
+                            <button type="button" class="btn-close" data-miss="alert">X
+                            </button>
                             {{ Session()->get('status') }}
                         </div>
                     @endif
-                    <div class="col-md-4">
-                        <input type="submit" class="btn btn-primary" value="Save">
-                    </div>
-                        <br>
+
+                    <br>
                         <hr>
                     <table class="table table-borderd">
                         <thead>
-                            <tr>
-                                <th scope="col">ID</th>
-                                <th scope="col">Category Name</th>
-                                <th scope="col">Edit</th>
-                                <th scope="col">Delete</th>
-                            </tr>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Category Name</th>
+                            <th scope="col">Edit</th>
+                            <th scope="col">Delete</th>
+                        </tr>
                         </thead>
-                        <tbody>
-                            @foreach($categories as $category)
-                                <tr>
-                                    <th scope="row">{{ $category->id }}</th>
-                                    <td>{{ $category->category_name }} </td>
-                                    <td>
-                                        <a href="{{ route('edit.category',$category->id) }}" class="btn btn-warning">Edit</a>
-                                    </td>
-                                    <td>
-                                        <a href="{{ route('delete.category',$category->id) }}" class="btn btn-danger">Delete</a>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
+
                     </table>
-                    {{ $categories->links() }}
+
                 </div>
             </div>
         </div>
@@ -107,3 +92,4 @@
 </script>
 
 </html>
+
