@@ -23,12 +23,12 @@
                 </a>
             </div>
             <div class="accordion-item">
-                <a href="{{ url('management/category') }}" class="waves-effect waves-light nav-link rounded svg-bt-icon">
+                <a href="{{ url('management/menu') }}" class="waves-effect waves-light nav-link rounded svg-bt-icon">
                     <h2 class="accordion-header" id="flush-headingTwo">
                         <button class="accordion-button collapsed" type="button"
                                 data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo"
                                 aria-expanded="false" aria-controls="flush-collapseTwo">
-                            Menue
+                            Menu
                         </button>
                     </h2>
                 </a>

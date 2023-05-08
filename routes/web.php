@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Backend\ManagementController;
+use App\Http\Controllers\Management\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,7 +37,11 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/management/category',[ManagementController::class, 'ManagementCategory']);
+Route::get('/management/category', [CategoryController::class, 'ManagementCategory']);
+Route::post('/category/store', [CategoryController::class, 'CategoryStore'])->name('category.store');
+Route::get('/edit/category/{id}', [CategoryController::class, 'EditCategory'])->name('edit.category');
+Route::post('/category/update/{id}', [CategoryController::class, 'CategoryUpdate'])->name('category.update');
+Route::get('/delete/category/{id}', [CategoryController::class, 'DeleteCategory'])->name('delete.category');
 
 
 require __DIR__.'/auth.php';
