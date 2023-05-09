@@ -12,7 +12,7 @@
         <h4> <li class="navitem"><a href="{{ url('dashboard') }}">HOME</a></li></h4>
         <h4> <li class="navitem"><a href="{{ url('about') }}">ABOUT</a></li></h4>
         <li class="navitem">
-            <h4><a href="#">{{ Auth::user()->name }} </a></h4>
+            <h4><a href="{{ url('dashboard') }}">{{ Auth::user()->name }} </a></h4>
 
         </li>
     </ul>

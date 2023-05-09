@@ -10,17 +10,17 @@
 </header>
 
 <div class="container" style="margin-top: 50px; margin-left: 180px">
-    <form method="POST" action="{{ route('category.update',$category->id) }}">
+    <form method="POST" action="{{ route('table.update',$table->id) }}">
         @csrf
         <div class="row">
-           @include('includes.sidebar')
+            @include('includes.sidebar')
 
             <div class="col-md-8">
-                <label  class="col-sm-2 col-form-label">Edit Category</label>
+                <label  class="col-sm-2 col-form-label">Edit Table</label>
                 <br>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" name="category_name"
-                           required value="{{ $category->category_name }}">
+                    <input type="text" class="form-control" name="table_name"
+                           required value="{{ $table->table_name }}">
                 </div>
                 <br>
                 <div class="row">

@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Management\CategoryController;
 use App\Http\Controllers\Management\MenuController;
+use App\Http\Controllers\Management\TableController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,10 +54,16 @@ Route::post('/menu/store', [MenuController::class, 'MenuStore'])->name('menu.sto
 Route::get('/edit/menu/{id}', [MenuController::class, 'EditMenu'])->name('edit.menu');
 Route::post('/menu/update/{id}', [MenuController::class, 'MenuUpdate'])->name('menu.update');
 Route::get('/delete/menu/{id}', [MenuController::class, 'DeleteMenu'])->name('delete.menu');
-
-
-
 // end Menu Route
+
+// All Table Route
+Route::get('/management/table', [TableController::class, 'ManagementTable']);
+Route::post('/table/store', [TableController::class, 'TableStore'])->name('table.store');
+Route::get('/edit/table/{id}', [TableController::class, 'EditTable'])->name('edit.table');
+Route::post('/table/update/{id}', [TableController::class, 'TableUpdate'])->name('table.update');
+Route::get('/delete/table/{id}', [TableController::class, 'DeleteTable'])->name('delete.table');
+
+// End Table Route
 
 
 require __DIR__.'/auth.php';

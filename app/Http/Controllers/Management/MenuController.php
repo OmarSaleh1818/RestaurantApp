@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Management;
 
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Menu;
@@ -46,7 +47,8 @@ class MenuController extends Controller
             'menu_name' => $request->menu_name,
             'menu_price' => $request->menu_price,
             'menu_image' => $imageName,
-            'menu_description' => $request->menu_description
+            'menu_description' => $request->menu_description,
+            'created_at' => Carbon::now(),
         ]);
 
         $request->session()->flush('status', $request->name.' is save successfully');
@@ -91,6 +93,7 @@ class MenuController extends Controller
             'menu_price' => $request->menu_price,
             'menu_image' => $imageName,
             'menu_description' => $request->menu_description,
+            'created_at' => Carbon::now(),
         ]);
 
         $request->session()->flash('status', $request->menu_name.' is updated successfully');
