@@ -26,22 +26,24 @@
                 </div>
                 <br>
                 <div class="row">
-                    @if($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-                    @if(Session()->has('status'))
-                        <div class="alert alert-success">
-                           <button type="button" class="btn-close" data-miss="alert">X
-                           </button>
-                            {{ Session()->get('status') }}
-                        </div>
-                    @endif
+                    <div class="col-sm-10">
+                        @if($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                        @if(Session()->has('status'))
+                            <div class="alert alert-success">
+                               <button type="button" class="btn-close" data-miss="alert">X
+                               </button>
+                                {{ Session()->get('status') }}
+                            </div>
+                        @endif
+                    </div>
                     <div class="col-md-4">
                         <input type="submit" class="btn btn-primary" value="Save">
                     </div>

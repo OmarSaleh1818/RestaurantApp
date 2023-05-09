@@ -11,8 +11,6 @@
 
 <div class="container" style="margin-top: 50px; margin-left: 180px">
 
-    <form method="POST" action="{{ route('category.store') }}">
-        @csrf
         <div class="row">
 
             @include('includes.sidebar')
@@ -22,26 +20,28 @@
                 <br>
                 <br>
                 <a href="{{ route('menu.create') }}" class="btn btn-success btn-sm float-right">
-                    <i class="fas fa-plus"></i> Create Menue
+                    <i class="fas fa-plus"></i> Create Menu
                 </a>
                 <br>
                 <div class="row">
-                    @if($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-                    @if(Session()->has('status'))
-                        <div class="alert alert-success">
-                            <button type="button" class="btn-close" data-miss="alert">X
-                            </button>
-                            {{ Session()->get('status') }}
-                        </div>
-                    @endif
+                    <div class="col-sm-10">
+                        @if($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                        @if(Session()->has('status'))
+                            <div class="alert alert-success">
+                                <button type="button" class="btn-close" data-miss="alert">X
+                                </button>
+                                {{ Session()->get('status') }}
+                            </div>
+                        @endif
+                    </div>
 
                     <br>
                         <hr>
@@ -49,47 +49,50 @@
                         <thead>
                         <tr>
                             <th scope="col">ID</th>
-                            <th scope="col">Category Name</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Image</th>
+                            <th scope="col">Description</th>
                             <th scope="col">Edit</th>
                             <th scope="col">Delete</th>
                         </tr>
                         </thead>
+                        <tbody>
+                            @foreach($menus as $menu)
+                                <tr>
+                                    <td>{{ $menu->id }}</td>
+                                    <td>{{ $menu->category->category_name }}</td>
+                                    <td>{{ $menu->menu_name }}</td>
+                                    <td>{{ $menu->menu_price }}</td>
+                                    <td>
+                                        <img src="{{ asset('menu_image') }}/{{$menu->menu_image}}"
+                                        alt="{{$menu->menu_name}}" height="70px" width="70px" class="img-thumbnil">
+                                    </td>
+                                    <td>{{ $menu->menu_description }}</td>
+                                    <td>
+                                        <a href="{{ route('edit.menu',$menu->id) }}"
+                                           class="btn btn-warning">Edit</a>
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('delete.menu',$menu->id) }}"
+                                           class="btn btn-danger">Delete</a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
 
                     </table>
 
                 </div>
             </div>
         </div>
-    </form>
 </div>
 
 
 </body>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
-<script>
-    @if(Session::has('message'))
-    var type = "{{ Session::get('alert-type','info') }}"
-    switch(type){
-        case 'info':
-            toastr.info(" {{ Session::get('message') }} ");
-            break;
-
-        case 'success':
-            toastr.success(" {{ Session::get('message') }} ");
-            break;
-
-        case 'warning':
-            toastr.warning(" {{ Session::get('message') }} ");
-            break;
-
-        case 'error':
-            toastr.error(" {{ Session::get('message') }} ");
-            break;
-    }
-    @endif
-</script>
 
 </html>
 

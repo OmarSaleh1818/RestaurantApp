@@ -11,32 +11,32 @@
 
 <div class="container" style="margin-top: 50px; margin-left: 180px">
 
-    <form method="POST" action="{{ route('menu.store') }}" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('menu.update',$menu->id) }}" enctype="multipart/form-data">
         @csrf
         <div class="row">
 
             @include('includes.sidebar')
 
             <div class="col-md-8">
-                <label  class="col-sm-2 col-form-label">Add Menu</label>
+                <label  class="col-sm-2 col-form-label">Edit Menu</label>
                 <br>
                 <div class="col-sm-10">
                     <select class="form-select" name="category_id" aria-label="Default select example">
-                        <option selected>Select Category</option>
                         @foreach($categories as $category)
-                            <option value="{{ $category->id }}">{{ $category->category_name }}</option>
+                            <option value="{{ $category->id }}" {{ $menu->category_id == $category->id ?
+                            'selected' : '' }}>{{ $category->category_name }}</option>
                         @endforeach
                     </select>
                 </div>
                 <br>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" name="menu_name"
-                           placeholder="Menu Name...">
+                            value="{{$menu->menu_name}}">
                 </div>
                 <br>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" name="menu_price"
-                           placeholder="Menu Price...">
+                           value="{{$menu->menu_price}}">
                 </div>
                 <br>
                 <div class="col-sm-10">
@@ -47,7 +47,7 @@
                 <br>
                 <div class="col-sm-10">
                     <textarea class="form-control" id="exampleFormControlTextarea1"
-                          name="menu_description" placeholder="Menu Description..." rows="3"></textarea>
+                              name="menu_description" rows="3">{{$menu->menu_description}}</textarea>
                 </div>
                 <br>
                 <div class="row">

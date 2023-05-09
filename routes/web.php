@@ -49,6 +49,11 @@ Route::get('/delete/category/{id}', [CategoryController::class, 'DeleteCategory'
 // all Menu Route
 Route::get('/management/menu', [MenuController::class, 'ManagementMenu']);
 Route::get('/menu/create', [MenuController::class, 'MenuCreate'])->name('menu.create');
+Route::post('/menu/store', [MenuController::class, 'MenuStore'])->name('menu.store');
+Route::get('/edit/menu/{id}', [MenuController::class, 'EditMenu'])->name('edit.menu');
+Route::post('/menu/update/{id}', [MenuController::class, 'MenuUpdate'])->name('menu.update');
+Route::get('/delete/menu/{id}', [MenuController::class, 'DeleteMenu'])->name('delete.menu');
+
 
 
 // end Menu Route
