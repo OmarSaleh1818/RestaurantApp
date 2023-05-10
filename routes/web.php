@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Management\CategoryController;
 use App\Http\Controllers\Management\MenuController;
 use App\Http\Controllers\Management\TableController;
+use App\Http\Controllers\Cashier\CashierController;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,8 +63,17 @@ Route::post('/table/store', [TableController::class, 'TableStore'])->name('table
 Route::get('/edit/table/{id}', [TableController::class, 'EditTable'])->name('edit.table');
 Route::post('/table/update/{id}', [TableController::class, 'TableUpdate'])->name('table.update');
 Route::get('/delete/table/{id}', [TableController::class, 'DeleteTable'])->name('delete.table');
-
 // End Table Route
+
+// All Cashier Route
+Route::get('/cashier', [CashierController::class, 'Index']);
+Route::get('/cashier/getTable',[CashierController::class, 'GetTables']);
+// End Cashier Route
+
+// All User Route
+Route::get('/management/user', [TableController::class, 'ManagementUser']);
+
+// End User Route
 
 
 require __DIR__.'/auth.php';

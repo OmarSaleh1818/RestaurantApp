@@ -37,31 +37,30 @@
                             </div>
                         @endif
                         @if(Session()->has('status'))
-                            <div class="alert alert-success">
-                               <button type="button" class="btn-close" data-miss="alert">X
-                               </button>
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
                                 {{ Session()->get('status') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
                         @endif
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 mb-4">
                         <input type="submit" class="btn btn-primary" value="Save">
                     </div>
                         <br>
                         <hr>
-                    <table class="table table-borderd">
+                    <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th scope="col">ID</th>
+                                <th scope="col">SIN</th>
                                 <th scope="col">Category Name</th>
                                 <th scope="col">Edit</th>
                                 <th scope="col">Delete</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($categories as $category)
+                            @foreach($categories as $key => $category)
                                 <tr>
-                                    <th scope="row">{{ $category->id }}</th>
+                                    <th scope="row">{{ $key+1 }}</th>
                                     <td>{{ $category->category_name }} </td>
                                     <td>
                                         <a href="{{ route('edit.category',$category->id) }}" class="btn btn-warning">Edit</a>

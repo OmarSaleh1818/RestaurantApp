@@ -25,7 +25,7 @@ a:hover {
 }
 
 .btn {
-    padding: .5rem 1rem;
+
     background: #383838;
     color: white;
     border: 1px solid transparent;
@@ -228,7 +228,7 @@ header .navmenu .navitem .dropdown::after {
 header .navmenu .navitem .dropdown li::after {
     content: '';
     display: block;
-    margin: 0px 16px; 
+    margin: 0px 16px;
     border-bottom: 1px solid #DDD;
 }
 
@@ -398,7 +398,7 @@ header .navmenu .navitem .dropdown li::after {
         height: 100%;
         background-color: rgba(0, 0, 0, 0.61);
     }
-    
+
     header .navmenu {
         position: fixed;
         left: 0;
@@ -418,15 +418,15 @@ header .navmenu .navitem .dropdown li::after {
         transform: translate(0px);
         transition: all 0.25s ease-in-out;
     }
-    
+
     header .navmenu .navitem a {
         padding: 5px;
     }
-    
+
     header .navmenu .navitem {
         flex-direction: column;
     }
-    
+
     header .navmenu .navitem .dropdown {
         width: 100%;
         position: static;
@@ -441,7 +441,7 @@ header .navmenu .navitem .dropdown li::after {
     header .navmenu .navitem .dropdown a {
         padding-left: 33px;
     }
-    
+
     header .navmenu .navitem:hover .dropdown {
         opacity: 1;
         z-index: 5;
@@ -449,6 +449,6 @@ header .navmenu .navitem .dropdown li::after {
         transition: all 0.25s cubic-bezier(0.4, 0.01, 0.165, 0.99);
     }
 }
-    
-    
+
+
 }

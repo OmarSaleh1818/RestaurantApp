@@ -45,7 +45,7 @@
                 </a>
             </div>
             <div class="accordion-item">
-                <a href="{{ url('management/category') }}" class="waves-effect waves-light nav-link rounded svg-bt-icon">
+                <a href="{{ url('management/user') }}" class="waves-effect waves-light nav-link rounded svg-bt-icon">
                     <h2 class="accordion-header" id="flush-headingThree">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#flush-collapseThree" aria-expanded="false"

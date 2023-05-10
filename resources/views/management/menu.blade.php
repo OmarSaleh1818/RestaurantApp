@@ -35,20 +35,19 @@
                             </div>
                         @endif
                         @if(Session()->has('status'))
-                            <div class="alert alert-success">
-                                <button type="button" class="btn-close" data-miss="alert">X
-                                </button>
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
                                 {{ Session()->get('status') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
                         @endif
                     </div>
 
                     <br>
                         <hr>
-                    <table class="table table-borderd">
+                    <table class="table table-bordered">
                         <thead>
                         <tr>
-                            <th scope="col">ID</th>
+                            <th scope="col">SIN</th>
                             <th scope="col">Category</th>
                             <th scope="col">Name</th>
                             <th scope="col">Price</th>
@@ -59,9 +58,9 @@
                         </tr>
                         </thead>
                         <tbody>
-                            @foreach($menus as $menu)
+                            @foreach($menus as $key => $menu)
                                 <tr>
-                                    <td>{{ $menu->id }}</td>
+                                    <td>{{ $key+1 }}</td>
                                     <td>{{ $menu->category->category_name }}</td>
                                     <td>{{ $menu->menu_name }}</td>
                                     <td>{{ $menu->menu_price }}</td>

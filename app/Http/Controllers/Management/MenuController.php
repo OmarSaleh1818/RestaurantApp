@@ -51,7 +51,7 @@ class MenuController extends Controller
             'created_at' => Carbon::now(),
         ]);
 
-        $request->session()->flush('status', $request->name.' is save successfully');
+        $request->session()->flash('status', $request->name.' is save successfully');
 
         return redirect('/management/menu');
 

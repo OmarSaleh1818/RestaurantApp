@@ -44,15 +44,15 @@
                             </div>
                         @endif
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 mb-4">
                         <input type="submit" class="btn btn-primary" value="Save">
                     </div>
                     <br>
                     <hr>
-                    <table class="table table-borderd">
+                    <table class="table table-bordered">
                         <thead>
                         <tr>
-                            <th scope="col">ID</th>
+                            <th scope="col">SIN</th>
                             <th scope="col">Table Name</th>
                             <th scope="col">Status</th>
                             <th scope="col">Edit</th>
@@ -60,9 +60,9 @@
                         </tr>
                         </thead>
                         <tbody>
-                            @foreach($tables as $table)
+                            @foreach($tables as $key => $table)
                                 <tr>
-                                    <td>{{ $table->id }}</td>
+                                    <td>{{ $key+1 }}</td>
                                     <td>{{ $table->table_name }}</td>
                                     <td>{{ $table->status }}</td>
                                     <td>

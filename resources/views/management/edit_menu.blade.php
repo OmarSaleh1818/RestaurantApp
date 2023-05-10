@@ -62,7 +62,7 @@
                             </div>
                         @endif
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 mb-4">
                         <input type="submit" class="btn btn-primary" value="Save">
                     </div>
                     <br>
