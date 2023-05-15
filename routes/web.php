@@ -67,7 +67,9 @@ Route::get('/delete/table/{id}', [TableController::class, 'DeleteTable'])->name(
 
 // All Cashier Route
 Route::get('/cashier', [CashierController::class, 'Index']);
+Route::get('/cashier/getMenuByCategory/{id}',[CashierController::class, 'GetMenuByCategory']);
 Route::get('/cashier/getTable',[CashierController::class, 'GetTables']);
+Route::post('/cashier/orderFood', [CashierController::class, 'OrderFood']);
 // End Cashier Route
 
 // All User Route
